@@ -1,3 +1,5 @@
+package FinalProject;
+
 /**
  * 超市的parent class，会有各自的物品，价格，库存
  * 能够计算价格*数量
