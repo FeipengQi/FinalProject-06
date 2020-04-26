@@ -25,7 +25,9 @@ public class FakestaCart {
         for(int i = 0; i < console.nextInt(); i++){
             System.out.println("Hi, Which store do you want to shop today? ");
             String store = console.next();
-            System.out.println("Please select a slot: ");
+            do{
+                System.out.println("Please select a slot: ");
+            }while()
             Customer customer;
             if (store.equals("Market Basket")){
                 customer = new Customer(marketBasket, console.nextInt());
@@ -33,8 +35,22 @@ public class FakestaCart {
                 customer = new Customer(cvs, console.nextInt());
             } else throw new NoSuchElementException();
             System.out.println("Please enter an item to add to the list (item-name quantity price) \n " +
-                    "Enter \"quit\" to stop adding items to the list \n");
+                    "Enter \"quit\" to stop adding items to the list. You can only have 10 items in the list \n ");
             customer.addItem();
+        }
+
+        for(int i = 9; i <= 18; i++){
+            if (customers.size() > 0){
+                for(int j = 0; j < customers.size(); j++){
+                    for(int k = 0; k < shoppers.length; k++){
+                        if(!shoppers[k].getOccupied() &&
+                                shoppers[k].getStartTime() <= customers.getTimeSlot() <= shoppers[k].getEndTime()){
+                            shoppers[k.]
+                        }
+                    }
+                }
+            }
+            for(int )
         }
 
     }
