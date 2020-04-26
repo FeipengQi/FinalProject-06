@@ -25,22 +25,29 @@ public class GroceryStore {
 
     }
 
-    //return the item index
     public int receiveOrder(){
+        String[] itemOrderNames = new String[];
+        int[] itemOrderQuantity = new int[];
 
-        String name;
         Scanner in = new Scanner(System.in);
-        System.out.println("My Grocery List (you can only have 10 items in the list");
-        System.out.println("");
-        System.out.println("Please enter an item to add to the list ");
-        name = in.next();
+        System.out.println("How many items you want to purchase today? ");
+        String[] itemOrderNames = new String[in.nextInt()];
+        System.out.println("Please enter an item to add to the list (item-name quantity price) "
+                + "Enter \"quit\" to stop adding items to the list");
+        while(! in.next().equals("quit")){
+            // itemOrderNames.add(console.next());
+            // itemOrderQuantity.add(console.nextInt());
+        }
 
-        for (int i = 0; i < itemName.length; i++) {
-           if (name.equals(itemName[i])){
-               return i;
-           }else if (i == itemName.length){
-               System.out.println("Item not found!");
-           }
+        for(int i = 0; i < itemOrderNames.length; i++){
+            for(int j = 0; j < itemName.length; j++){
+                if(itemOrderNames[i].equals(itemName[j])){
+                    if((itemQuantity[j] - itemOrderQuantity[i] < 0 ){
+                        throw new IllegalArgumentException("Item out of stock!");
+                    }
+                    itemQuantity[j] -= itemOrderQuantity[i];
+                }
+            }
         }
 
     }
