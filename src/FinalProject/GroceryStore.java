@@ -26,7 +26,7 @@ public class GroceryStore {
     }
 
     //return the item index
-    public int getItem(){
+    public int receiveOrder(){
 
         String name;
         Scanner in = new Scanner(System.in);
@@ -47,10 +47,12 @@ public class GroceryStore {
 
     public int getQuantity(){
 
-        return itemQuantity[getItem()];
+        return itemQuantity[receiveOrder()];
     }
 
     public void setQuantity(){
+
+        return itemQuantity[receiveOrder()-];
 
     }
 
