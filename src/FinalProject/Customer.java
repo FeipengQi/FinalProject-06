@@ -22,7 +22,7 @@ public class Customer {
     }
 
     public getGroceryStore(){
-      return this.store; 
+      return this.store;
     }
 
     public void hasOrderInprogress(){

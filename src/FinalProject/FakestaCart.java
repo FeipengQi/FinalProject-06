@@ -25,9 +25,7 @@ public class FakestaCart {
         for(int i = 0; i < console.nextInt(); i++){
             System.out.println("Hi, Which store do you want to shop today? ");
             String store = console.next();
-            do{
-                System.out.println("Please select a slot: ");
-            }while()
+            System.out.println("Please select a slot: ");
             Customer customer;
             if (store.equals("Market Basket")){
                 customer = new Customer(marketBasket, console.nextInt());
