@@ -1,6 +1,5 @@
 package FinalProject;
 
-import java.util.Arrays;
 import java.util.Scanner;
 /**
  * 超市的parent class，会有各自的物品，价格，库存
@@ -26,12 +25,14 @@ public class GroceryStore {
     }
 
     public int receiveOrder(){
-        String[] itemOrderNames = new String[];
-        int[] itemOrderQuantity = new int[];
 
         Scanner in = new Scanner(System.in);
         System.out.println("How many items you want to purchase today? ");
-        String[] itemOrderNames = new String[in.nextInt()];
+        //array size
+        int size = in.nextInt();
+        String[] itemOrderNames = new String[size];
+        int[] itemOrderQuantity = new int[size];
+
         System.out.println("Please enter an item to add to the list (item-name quantity price) "
                 + "Enter \"quit\" to stop adding items to the list");
         while(! in.next().equals("quit")){
