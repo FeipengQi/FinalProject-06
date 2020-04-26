@@ -50,7 +50,7 @@ public class GroceryStore {
                 }
             }
         }
-        
+
 
         for (int i = 0; i < itemName.length; i++) {
            if (name.equals(itemName[i])){
