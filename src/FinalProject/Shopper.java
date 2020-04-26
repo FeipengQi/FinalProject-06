@@ -30,15 +30,15 @@ public class Shopper {
     }
 
     public int getStartTime(){
-      return this.getStartTime;
+      return this.startTime;
     }
 
     public int getEndTime(){
-      return this.getEndTime;
+      return this.endTime;
     }
 
     public getGroceryStore(){
-      return this.store; 
+      return this.store;
     }
 
     public void delivered(){
