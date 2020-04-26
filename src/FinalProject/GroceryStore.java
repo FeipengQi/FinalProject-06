@@ -1,3 +1,6 @@
+import java.util.*;
+import java.util.Scanner;
+import java.util.ArrayList;
 package FinalProject;
 
 /**
@@ -10,17 +13,46 @@ package FinalProject;
  *
  */
 public class GroceryStore {
+
     public GroceryStore(){
 
     }
+    public int receiveOrder() {
+        ArrayList<String> itemOrderNames = new ArrayList<String>();
+        ArrayList<Integer> itemOrderQuantity = new ArrayList<Integer>();
 
-    public int getQuantity(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("How many items you want to purchase today? ");
+        System.out.println("");
+        System.out.println("Please enter an item to add to the list (item-name quantity price) "
+                + "Enter \"quit\" to stop adding items to the list");
+        while(! in.next().equals("quit")){
+            // itemOrderNames.add(console.next());
+            // itemOrderQuantity.add(console.nextInt());
+        }
+
+        for(int i = 0; i < itemOrderNames.length; i++){
+            for(int j = 0; j < itemName.length; j++){
+                if(itemOrderNames[i].equals(itemName[j])){
+                    if((itemQuantity[j] - itemOrderQuantity[i] < 0 ){
+                        throw new IllegalArgumentException("Item out of stock!");
+                    }
+                    itemQuantity[j] -= itemOrderQuantity[i];
+                }
+            }
+        }
+
 
     }
 
     public void setQuantity(){
 
     }
+
+    public int getTotalCosts(){
+
+    }
+
 
     public void restock(){
 
