@@ -30,4 +30,8 @@ public class GroceryStore {
     public double getPrice(){
 
     }
+
+    public String toString(){
+
+    }
 }
