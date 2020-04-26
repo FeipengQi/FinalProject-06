@@ -36,22 +36,34 @@ public class FakestaCart {
             } else throw new NoSuchElementException();
             System.out.println("Please enter an item to add to the list (item-name quantity price) \n " +
                     "Enter \"quit\" to stop adding items to the list. You can only have 10 items in the list \n ");
-            customer.addItem();
+            store.receiveOrder();
         }
 
         for(int i = 9; i <= 18; i++){
             if (customers.size() > 0){
                 for(int j = 0; j < customers.size(); j++){
-                    for(int k = 0; k < shoppers.length; k++){
-                        if(!shoppers[k].getOccupied() &&
-                                shoppers[k].getStartTime() <= customers.getTimeSlot() <= shoppers[k].getEndTime()){
-                            shoppers[k.]
+                    Customer curr_customer = customers.get(j);
+                    if(curr_customer.getTimeSlot() == i){
+                        for(int k = 0; k < shoppers.length; k++){
+                            //equals method
+                            if(shoppers[k].getStore() == curr_customer.getStore()) {
+                                if (!shoppers[k].getOccupied() &&
+                                        shoppers[k].getStartTime() <= curr_customer.getTimeSlot() <= shoppers[k].getEndTime()) {
+                                    shoppers[k].startDelivering();
+                                    curr_customer.hasOrderInProgress();
+                                }
+                            }
                         }
+                    } else if(curr_customer.inProgress() && ! curr_customer.delivered()) {
+                        curr_customer.approaching();
+                    } else if(curr_customer.delivered()){
+                        System.out.println("Customer #" + j + "'s order is delivered");
+                        customers.remove(j);
                     }
                 }
             }
-            for(int )
         }
-
+        marketbasket.restock();
+        cvs.restock();
     }
 }

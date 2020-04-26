@@ -6,16 +6,18 @@ package FinalProject;
 public class Customer {
 
     private int timeSlot;
-    private GroceryStore store = new GroceryStore();
+    private GroceryStore store;
+    private boolean orderInProgress;
+    private int hoursLeft = 2;
 
     public Customer(){
-
+        this.hoursLeft = 2;
     }
     public Customer(GroceryStore store, int timeSlot){
 
     }
 
-    public getTimeSlot(){
+    public int getTimeSlot(){
       return this.timeSlot;
     }
 
@@ -23,7 +25,19 @@ public class Customer {
       return this.store; 
     }
 
-    public void addItem(){
-
+    public void hasOrderInprogress(){
+        this.orderInprogress = true;
     }
+
+    public boolean delivered(){
+        if(this.hourseLeft >= 0){
+            return false;
+        }
+        return true;
+    }
+
+    public void approaching(){
+        this.hoursLeft--;
+    }
+
 }
