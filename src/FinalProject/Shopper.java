@@ -8,25 +8,41 @@ package FinalProject;
  * 配送完成的status
  */
 public class Shopper {
+    private GroceryStore store = new GroceryStore();
+    private int startTime;
+    private int endTime;
+    private boolean occupied;
+
     public Shopper(GroceryStore store, int startTime, int endTime) {
-
+      this.store = store;
+      this.startTime = startTime;
+      this.endTime = endTime;
+      this.occupied = false;
     }
 
-    //接受订单
-    public void setAccepted() {
-
+    public boolean getOccupied(){
+      return this.occupied;
     }
 
-    //是否接到订单
-    public boolean getAccepted() {
 
+    public void startDelivering(){
+      this.occupied = true;
     }
 
-    //
-    public void startDelivery() {
+    public int getStartTime(){
+      return this.getStartTime;
+    }
+
+    public int getEndTime(){
+      return this.getEndTime;
+    }
+
+    public getGroceryStore(){
+      return this.store; 
     }
 
     public void delivered(){
+      return this.occupied = false;
     }
 
 
