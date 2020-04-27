@@ -1,10 +1,6 @@
-import java.util.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 package FinalProject;
-
-import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * 超市的parent class，会有各自的物品，价格，库存
@@ -33,57 +29,29 @@ public class GroceryStore {
 
         Scanner in = new Scanner(System.in);
         System.out.println("How many items you want to purchase today? ");
+        int items = in.nextInt();
         System.out.println("");
+
         System.out.println("Please enter an item to add to the list (item-name quantity price) "
                 + "Enter \"quit\" to stop adding items to the list");
         while(! in.next().equals("quit")){
-            // itemOrderNames.add(console.next());
-            // itemOrderQuantity.add(console.nextInt());
+             itemOrderNames.add(in.next());
+             itemOrderQuantity.add(in.nextInt());
         }
 
-        for(int i = 0; i < itemOrderNames.length; i++){
+        for(int i = 0; i < itemOrderNames.size(); i++){
             for(int j = 0; j < itemName.length; j++){
-                if(itemOrderNames[i].equals(itemName[j])){
-                    if((itemQuantity[j] - itemOrderQuantity[i] < 0 ){
+                if(itemOrderNames.get(i).equals(itemName[j])){
+                    if((itemQuantity[j] - itemOrderQuantity.get(i) < 0 )){
                         throw new IllegalArgumentException("Item out of stock!");
                     }
-                    itemQuantity[j] -= itemOrderQuantity[i];
+                    itemQuantity[j] -= itemOrderQuantity.get(i);
                 }
             }
         }
 
-    public int receiveOrder() {
 
-        Scanner in = new Scanner(System.in);
-        System.out.println("How many items you want to purchase today? ");
-        //array size
-        int size = in.nextInt();
-        String[] itemOrderNames = new String[size];
-        int[] itemOrderQuantity = new int[size];
-
-        System.out.println("Please enter an item to add to the list (item-name quantity price) "
-                + "Enter \"quit\" to stop adding items to the list");
-        while (!in.next().equals("quit")) {
-            for (int i = 0; i < size; i++) {
-                itemOrderNames[i] = in.next();
-                itemOrderQuantity[i] = in.nextInt();
-            }
-        }
-
-        for (int i = 0; i < itemOrderNames.length; i++) {
-            for (int j = 0; j < itemName.length; j++) {
-                if (itemOrderNames[i].equals(itemName[j])) {
-                    if ((itemQuantity[j] - itemOrderQuantity[i] < 0) {
-                        throw new IllegalArgumentException("Item out of stock!");
-                    }
-                    itemQuantity[j] -= itemOrderQuantity[i];
-                }
-            }
-        }
-
-    }
-
-    public int getQuantity() {
+    public int getQuantity(){
 
         return itemQuantity[receiveOrder()];
     }
