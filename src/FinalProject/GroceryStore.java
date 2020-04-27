@@ -20,6 +20,8 @@ public class GroceryStore {
 
     int[] defaultQuantity = {20, 20, 20};
 
+    int quantity;
+
     public GroceryStore() {
 
     }
@@ -53,12 +55,13 @@ public class GroceryStore {
 
     public int getQuantity(){
 
-        return itemQuantity[receiveOrder()];
+        return this.quantity;
     }
 
     public void setQuantity() {
 
-        return itemQuantity[];
+
+        this.quantity = itemQuantity[receiveOrder()];
 
     }
 
