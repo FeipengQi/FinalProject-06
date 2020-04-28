@@ -58,7 +58,7 @@ public class FakestaCart {
                     }
                 }
 
-                
+
 
 
                 for(int j = 0; j < customers.size(); j++){
