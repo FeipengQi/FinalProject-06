@@ -46,9 +46,7 @@ public class GroceryStore {
         for (int i = 0; i < itemOrderNames.length; i++) {
             for (int j = 0; j < itemName.length; j++) {
                 if (itemOrderNames[i].equals(itemName[j])) {
-                    if ((itemQuantity[j] - itemOrderQuantity[i] < 0) {
-                        throw new IllegalArgumentException("Item out of stock!");
-                    }
+                    if ((itemQuantity[j] - itemOrderQuantity[i]) < 0)throw new IllegalArgumentException("Item out of stock!");
                     itemQuantity[j] -= itemOrderQuantity[i];
                 }
             }
