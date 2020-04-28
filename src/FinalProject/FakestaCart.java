@@ -39,25 +39,44 @@ public class FakestaCart {
 
         for(int i = 9; i <= 18; i++){
             if (customers.size() > 0){
+                for(int i = 0; i < shoppers.length; i++){
+                    Shopper curr_shopper = shoppers[i];
+                    if(! curr_shopper.isOccupied()){
+                        for(int k = 0; k < customers.size(); k++){
+                            Customer curr_customer = customers.get(k);
+                            if(curr_shopper.getStore() == customers.get(k).getStore()){
+                                if(curr_shopper.getStartTime() <= customers.get(k).getTimeSlot() <= curr_shopper.getEndTime()){
+                                    curr_shopper.startDelivery(curr_customer);
+                                }
+                            }
+                        }
+                    } else if(curr_shopper.isOccupied() && ! curr_shopper.delivered()) {
+                        curr_shopper.approaching();
+                    } else if(curr_shopper.isOccupied() && curr_shopper.isDelivered()){
+                        System.out.println("Customer #" + j + "'s order is delivered");
+                        customers.remove();
+                    }
+                }
+
+
+
+
                 for(int j = 0; j < customers.size(); j++){
                     Customer curr_customer = customers.get(j);
                     if(curr_customer.getTimeSlot() == i){
                         for(int k = 0; k < shoppers.length; k++){
                             //equals method
-                            if(shoppers[k].getStore() == curr_customer.getStore()) {
+                            Shopper curr_shopper = shoppers[k];
+                            if(curr_shopper.getStore() == curr_customer.getStore()) {
                                 if (!shoppers[k].getOccupied() &&
-                                        shoppers[k].getStartTime() <= curr_customer.getTimeSlot() <= shoppers[k].getEndTime()) {
-                                    shoppers[k].startDelivering();
-                                    curr_customer.hasOrderInProgress();
+                                        curr_shopper.getStartTime() <= curr_customer.getTimeSlot() <= curr_shopper.getEndTime()) {
+                                    curr_shopper.startDelivery(k);
+                                    //shoppers[k].Delivering();
                                 }
+
                             }
                         }
-                    } else if(curr_customer.inProgress() && ! curr_customer.delivered()) {
-                        curr_customer.approaching();
-                    } else if(curr_customer.delivered()){
-                        System.out.println("Customer #" + j + "'s order is delivered");
-                        customers.remove(j);
-                    }
+
                 }
             }
         }
