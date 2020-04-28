@@ -13,7 +13,6 @@ public class Shopper {
     private int endTime;
     private boolean occupied;
     private int timeLeft;
-    private boolean delivered;
     private Customer customer;
 
 
@@ -25,19 +24,20 @@ public class Shopper {
       this.timeLeft = 2;
     }
 
+    public GroceryStore getStore(){
+      return this.store;
+    }
+
     public int getStartTime(){
       return this.startTime;
     }
+
     public int getEndTime(){
       return this.endTime;
     }
 
     public boolean isOccupied(){
       return this.occupied;
-    }
-
-    public void Delivering(){
-      this.timeLeft--;
     }
 
     public void startDelivery(Customer customer) {
@@ -48,17 +48,12 @@ public class Shopper {
     public boolean isDelivered(){
         if(this.timeLeft >= 0){
             return false;
+        }else{
+          this.occupied = false;
+          return true;
         }
-        return true;
-    }
-
-    public boolean delivered(){
-        this.delivered = true;
     }
 
     public void approaching(){
         this.timeLeft--;
     }
-
-    public Customer get
-}
