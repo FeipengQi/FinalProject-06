@@ -11,27 +11,26 @@ package FinalProject;
  * 参考grocery item order
  */
 public class GroceryStore {
+    int product = 3;
 
-    String[] itemName = {"A", "B", "C"};
+    String[] itemName = new String[product];
 
-    int[] itemPrice = {1, 2, 3};
+    int[] itemPrice = new int[product];
 
-    int[] itemQuantity = {20, 20, 20};
+    int[] itemQuantity =  new int[product];
 
-    int[] defaultQuantity = {20, 20, 20};
-
-    int quantity;
+    int[] defaultQuantity = new int[product];
 
     public GroceryStore() {
 
     }
+
     public int receiveOrder() {
         ArrayList<String> itemOrderNames = new ArrayList<String>();
         ArrayList<Integer> itemOrderQuantity = new ArrayList<Integer>();
 
         Scanner in = new Scanner(System.in);
         System.out.println("How many items you want to purchase today? ");
-        int items = in.nextInt();
         System.out.println("");
 
         System.out.println("Please enter an item to add to the list (item-name quantity price) "
@@ -54,14 +53,12 @@ public class GroceryStore {
 
 
     public int getQuantity(){
+        return i
 
-        return this.quantity;
     }
 
     public void setQuantity() {
 
-
-        this.quantity = itemQuantity[receiveOrder()];
 
     }
 
@@ -74,7 +71,7 @@ public class GroceryStore {
 
     }
 
-    public String toString() {
+    public String toString(){
 
     }
 }
