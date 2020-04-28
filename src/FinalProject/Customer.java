@@ -14,7 +14,8 @@ public class Customer {
         this.hoursLeft = 2;
     }
     public Customer(GroceryStore store, int timeSlot){
-
+      this.store = store;
+      this.timeSlot = timeSlot;
     }
 
     public int getTimeSlot(){

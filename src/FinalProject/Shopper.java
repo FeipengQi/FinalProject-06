@@ -12,17 +12,15 @@ public class Shopper {
 
     }
 
-    //接受订单
     public void setAccepted() {
 
     }
 
-    //是否接到订单
     public boolean getAccepted() {
 
     }
 
-    //
+
     public void startDelivery(int k) {
 
       System.out.println("shopper "+k+" is on the way!");
