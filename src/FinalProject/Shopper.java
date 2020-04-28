@@ -11,8 +11,11 @@ public class Shopper {
     private GroceryStore store = new GroceryStore();
     private int startTime;
     private int endTime;
+    private boolean occupied;
     private int timeLeft;
-    boolean occupied;
+    private boolean delivered;
+    private Customer customer;
+
 
 
     public Shopper(GroceryStore store, int startTime, int endTime) {
@@ -29,7 +32,7 @@ public class Shopper {
       return this.endTime;
     }
 
-    public boolean getOccupied(){
+    public boolean isOccupied(){
       return this.occupied;
     }
 
@@ -37,21 +40,25 @@ public class Shopper {
       this.timeLeft--;
     }
 
-    public void startDelivery(int k) {
-
+    public void startDelivery(Customer customer) {
       this.occupied = true;
-
-
-      System.out.println("shopper "+k+" is on the way!");
+      this.customer = customer;
     }
 
-    public void delivered(){
-      if(this.timeLeft = 0){
-        this.occupied = false;
-      }
-
+    public boolean isDelivered(){
+        if(this.timeLeft >= 0){
+            return false;
+        }
+        return true;
     }
 
+    public boolean delivered(){
+        this.delivered = true;
+    }
 
+    public void approaching(){
+        this.timeLeft--;
+    }
 
+    public Customer get
 }
