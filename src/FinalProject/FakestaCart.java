@@ -47,7 +47,7 @@ public class FakestaCart {
                             if(shoppers[k].getStore() == curr_customer.getStore()) {
                                 if (!shoppers[k].getOccupied() &&
                                         shoppers[k].getStartTime() <= curr_customer.getTimeSlot() <= shoppers[k].getEndTime()) {
-                                    shoppers[k].startDelivering();
+                                    shoppers[k].startDelivering(k);
                                     curr_customer.hasOrderInProgress();
                                 }
                             }

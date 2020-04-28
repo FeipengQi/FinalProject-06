@@ -23,7 +23,9 @@ public class Shopper {
     }
 
     //
-    public void startDelivery() {
+    public void startDelivery(int k) {
+
+      System.out.println("shopper "+k+" is on the way!");
     }
 
     public void delivered(){
